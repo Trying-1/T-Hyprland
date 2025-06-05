@@ -54,13 +54,19 @@ mkdir -p ~/Pictures/screenshots
 
 ### 2. Install Configuration
 
-Clone the repository and run the installation script:
+Download the repository and run the installation script:
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/minimal-hyprland ~/.config/hypr
+# Download the repository
+mkdir -p ~/.config/hypr
 cd ~/.config/hypr
+wget https://github.com/Trying-1/T-Hyprland/archive/refs/heads/master.zip
+unzip master.zip
+mv T-Hyprland-master/* .
+rm -rf T-Hyprland-master master.zip
+```
 
+```bash
 # Make scripts executable
 chmod +x install.sh
 
