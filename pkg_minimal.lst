@@ -7,8 +7,7 @@ network-manager-applet                                 # Network status icon
 brightnessctl                                          # Screen brightness
 playerctl                                              # Media controls
 cava                                                   # Audio visualization
-wlogout                                                # Logout menu
-swaylock-effects                                       # Screen locker with effects
+wlogout                                                # Screen locker
 
 # --------------------------------------------------- // Display
 xorg-xwayland                                          # XWayland support

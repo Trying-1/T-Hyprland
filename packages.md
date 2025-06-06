@@ -11,8 +11,7 @@
 - networkmanager: Network management
   - network-manager-applet: Network status icon
 - brightnessctl: Screen brightness control
-- wlogout: Logout menu
-- swaylock: Screen locker
+- wlogout: Screen locker
 - xdg-user-dirs: User directory management
 - base-devel: Development tools
 - git: Version control
