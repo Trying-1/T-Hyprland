@@ -1,0 +1,32 @@
+[global]
+font = JetBrainsMono Nerd Font 10
+format = %s
+
+[geometry]
+width = 300
+height = 50
+horizontal_offset = 0
+vertical_offset = 50
+
+[colors]
+foreground = #c0caf5
+background = #1a1b26
+highlight = #7aa2f7
+
+[urgency_low]
+timeout = 3
+
+[urgency_normal]
+timeout = 5
+
+[urgency_critical]
+timeout = 0
+
+[frame_colors]
+low = #1a1b26
+normal = #1a1b26
+critical = #1a1b26
+
+[rule]
+appname = "^.*$"
+format = "%s"

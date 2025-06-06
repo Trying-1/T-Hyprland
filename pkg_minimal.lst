@@ -1,0 +1,57 @@
+# --------------------------------------------------- // System
+pipewire                                               # Audio/video server and compositor
+pipewire-pulse                                         # PulseAudio compatibility layer
+pamixer                                                # Volume control
+networkmanager                                         # Network management
+network-manager-applet                                 # Network status icon
+brightnessctl                                          # Screen brightness
+playerctl                                              # Media controls
+cava                                                   # Audio visualization
+wlogout                                                # Logout menu
+swaylock-effects                                       # Screen locker with effects
+
+# --------------------------------------------------- // Display
+xorg-xwayland                                          # XWayland support
+noto-fonts                                             # Unicode fonts
+noto-fonts-emoji                                       # Emoji support
+ttf-font-awesome                                       # Icons
+
+# --------------------------------------------------- // Desktop Portals
+xdg-desktop-portal-gtk                                 # GTK portal
+xdg-desktop-portal-kde                                 # KDE portal
+xdg-desktop-portal-wlr                                 # Wayland portal
+
+# --------------------------------------------------- // Window Manager
+hyprland                                               # Wayland compositor
+waybar                                                 # Status bar
+wofi-wayland                                           # Application launcher
+grim                                                   # Screenshot tool
+slurp                                                  # Region selector
+cliphist                                               # Clipboard manager
+hyprpaper                                              # Wallpaper manager for Hyprland
+
+# --------------------------------------------------- // Applications
+kitty                                                  # Terminal emulator
+dolphin                                                # File manager
+firefox                                                 # Web browser
+
+# --------------------------------------------------- // Utilities
+htop                                                   # Process viewer
+neofetch                                               # System info
+dunst                                                  # Notifications
+
+# --------------------------------------------------- // Development tools
+git-delta                                              # Git diff viewer
+ripgrep                                                # Text search
+fd                                                     # File finder
+
+# --------------------------------------------------- // Dependencies
+polkit-gnome                                           # Authentication agent
+dbus-user-session                                      # Session bus
+xdg-user-dirs                                          # User directories
+pacman-contrib                                         # Pacman tools
+
+# --------------------------------------------------- // Shell
+zsh                                                    # Shell
+eza                                                    # File lister
+starship                                               # Shell prompt
