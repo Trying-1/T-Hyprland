@@ -15,3 +15,5 @@ wallpapers/
 
 # Ignore any binary files
 *.bin 
+
+*.png

@@ -13,7 +13,7 @@ ttf-jetbrains-mono ttf-jetbrains-mono-nerd hyprpicker hyprpaper hyprpolkitagent 
 
 ### AUR
 ```
-gruvbox-dark-icons-gtk gruvbox-material-gtk-theme-git hyprshot wlogout zen-browser-bin
+hyprshot wlogout
 ```
 
 ## Installation
