@@ -1,38 +1,27 @@
 {
   "hyprland/workspaces": {
-    "active-only": false,
-    "all-outputs": true,
-    "format": "{icon}",
-    "show-special": false,
+    "disable-scroll": false,
+    "all-outputs": false,
     "on-click": "activate",
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1",
-    "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": []
-    },
-    "format-icons": {
-      "active": "[A]",
-      "default": "[ ]"
-    }
+    "format": "{icon}",
+    "sort-by-number": true
   },
 
   "clock": {
     "interval": 1,
-    "format": " [T] {:%H:%M} ",
-    "format-alt": " [T] {:%H:%M  [D]  %Y, %d %B, %A} ",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "format": "{:%H:%M}",
+    "format-alt": "{:%Y-%m-%d}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "calendar": {
-      "mode": "year",
-      "mode-mon-col": 3,
-      "weeks-pos": "right",
+      "mode": "month",
       "on-scroll": 1,
       "format": {
-        "days": "<span color='#ebdbb2'><b>{}</b></span>",
-        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays": "<span color='#ebdbb2'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'>{}</span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b>{}</b></span>"
       }
     },
     "actions": {
@@ -45,32 +34,23 @@
   },
 
   "cpu": {
-    "format": " {usage}% [CPU] ",
-    "interval": 1,
-    "on-click-right": "gnome-system-monitor"
+    "format": " {usage}%",
+    "tooltip": false,
+    "on-click": "kitty -c ~/.config/hypr/kitty/kitty.conf --title btop sh -c 'btop'",
+    "on-click-right": "kitty -c ~/.config/hypr/kitty/kitty.conf --title btop sh -c 'btop'"
   },
 
   "hyprland/window": {
-    "format": " {} ",
-    "max-length": 60,
-    "separate-outputs": true,
-    "offscreen-css": true,
-    "offscreen-css-text": "(inactive)",
-    "rewrite": {
-      "(.*) — Mozilla Firefox": " $1",
-      "(.*) - fish": "> [$1]",
-      "(.*) - zsh": "> [$1]",
-      "(.*) - kitty": "> [$1]"
-    }
+    "max-length": 50,
+    "separate-outputs": true
   },
 
   "memory": {
     "interval": 10,
-    "format": " {percentage}% [RAM] ",
-    "format-alt-click": "click",
-    "tooltip": true,
-    "tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
-    "on-click-right": "kitty -c ~/.config/dotfiles/kitty/kitty.conf --title btop sh -c 'btop'"
+    "format": " {percentage}%",
+    "tooltip-format": "{used:0.1f}GB/{total:0.1f}GB used",
+    "on-click": "kitty -c ~/.config/hypr/kitty/kitty.conf --title btop sh -c 'btop'",
+    "on-click-right": "kitty -c ~/.config/hypr/kitty/kitty.conf --title btop sh -c 'btop'"
   },
 
   "mpris": {
@@ -90,23 +70,20 @@
   },
 
   "pulseaudio": {
-    "format": " {volume}% {icon} ",
-    "format-bluetooth": " [BT] {volume}% {icon} ",
-    "format-muted": "[MUTE]",
+    "scroll-step": 1,
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": " ",
     "format-icons": {
-      "headphone": "[S]",
-      "hands-free": "[S]",
-      "headset": "[S]",
-      "phone": "[S]",
-      "portable": "[S]",
-      "car": "[S]",
-      "default": ["[S]", "[S]", "[S]", "[S]"],
-      "ignored-sinks": ["Easy Effects Sink"]
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
     },
-    "scroll-step": 5.0,
-    "on-click": "pavucontrol -t 3",
-    "tooltip-format": "{icon} {desc} | {volume}%",
-    "smooth-scrolling-threshold": 1
+    "on-click": "pavucontrol"
   },
 
   "temperature": {
@@ -116,33 +93,71 @@
       "/sys/class/hwmon/hwmon1/temp1_input",
       "/sys/class/thermal/thermal_zone0/temp"
     ],
-    "critical-threshold": 82,
-    "format-critical": "{temperatureC}°C {icon}",
-    "format": " {temperatureC}°C {icon} ",
-    "format-icons": ["[T]"],
-    "on-click-right": "kitty -c ~/.config/dotfiles/kitty/kitty.conf --title nvtop sh -c 'nvtop'"
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", ""],
+    "on-click": "kitty -c ~/.config/hypr/kitty/kitty.conf --title nvtop sh -c 'nvtop'",
+    "on-click-right": "kitty -c ~/.config/hypr/kitty/kitty.conf --title nvtop sh -c 'nvtop'"
+  },
+
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-icons": ["", "", "", "", "", "", "", "", "", ""]
+  },
+
+  "battery#bat2": {
+    "bat": "BAT2"
+  },
+
+  "custom/cava": {
+    "exec": "~/.config/hypr/hyprland/scripts/waybarCava.sh",
+    "tooltip": false,
+    "on-click": "kitty -c ~/.config/hypr/kitty/kitty.conf nvim -c cd ~/.config/hypr/"
+  },
+
+  "custom/mpris": {
+    "format": "{player_icon} {dynamic}",
+    "return-type": "json",
+    "max-length": 25,
+    "format-icons": {
+      "spotify": "",
+      "default": "🎜"
+    },
+    "escape": true,
+    "exec": "$HOME/.config/hypr/hyprland/scripts/mpris.sh"
   },
 
   "custom/swaync": {
-    "tooltip": true,
-    "format": " {} {icon} ",
-    "format-icons": {
-      "notification": "[N]<span foreground='red'><sup>+</sup></span>",
-      "none": "[N]",
-      "dnd-notification": "[DND]<span foreground='red'><sup>+</sup></span>",
-      "dnd-none": "[DND]",
-      "inhibited-notification": "[I]<span foreground='red'><sup>+</sup></span>",
-      "inhibited-none": "[I]",
-      "dnd-inhibited-notification":
-        "[DND-I]<span foreground='red'><sup>+</sup></span>",
-      "dnd-inhibited-none": "[DND-I]"
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "sleep 0.1 && swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
+    "format": " ",
+    "on-click": "swaync-client -t",
+    "on-click-right": "swaync-client -d",
+    "tooltip": false
+  },
+
+  "custom/menu": {
+    "format": " ",
+    "on-click": "wlogout",
+    "tooltip": false
+  },
+
+  "network": {
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": " {ipaddr}/{cidr}",
+    "format-linked": " {ifname} (No IP)",
+    "format-disconnected": "⚠ Disconnected",
+    "format-alt": " {ifname}: {ipaddr}/{cidr}",
+    "on-click": "kitty -c ~/.config/hypr/kitty/kitty.conf --title nmtui sh -c 'nmtui'"
   },
 
   "wlr/taskbar": {
@@ -160,12 +175,9 @@
       "Brave-browser",
       "Spotify",
       "Zen Browser"
-    ]
-  },
-
-  "custom/cava": {
-    "exec": "~/.config/dotfiles/hyprland/scripts/waybarCava.sh",
-    "format": "{}",
-    "on-click": "kitty -c ~/.config/dotfiles/kitty/kitty.conf nvim -c cd ~/.config/dotfiles/"
+    ],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    }
   }
 }

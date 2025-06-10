@@ -1,34 +1,29 @@
 {
-"include": "~/.config/dotfiles/waybar/modules",
+"include": "~/.config/hypr/waybar/modules",
 "layer": "top",
-"exclusive": true,
-"passthrough": false,
-"position": "top",
-"spacing": 3,
-"fixed-center": true,
-"ipc": true,
+"height": 30,
+"spacing": 4,
 "margin-top": 0,
+"margin-bottom": 0,
 "margin-left": 0,
 "margin-right": 0,
-"margin-bottom": 0,
-
 "modules-left": [
+  "custom/menu",
   "hyprland/workspaces",
-  "clock",
-	"custom/cava",
-  "mpris"
-	],
-
+  "hyprland/window"
+],
 "modules-center": [
-	"hyprland/window"
-	], 
-
+  "hyprland/taskbar"
+],
 "modules-right": [
-	"wlr/taskbar",
-	"cpu", 
-	"temperature", 
-	"memory",
-	"custom/swaync",
-	"pulseaudio"
-	]
+  "custom/cava",
+  "pulseaudio",
+  "network",
+  "cpu",
+  "memory",
+  "temperature",
+  "custom/mpris",
+  "custom/swaync",
+  "clock"
+]
 }

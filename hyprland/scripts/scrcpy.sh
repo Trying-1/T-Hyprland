@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 #Script to run SCRCPY
 
@@ -8,47 +8,54 @@ then
     exit
 fi
 
-# Get connected devices
-devices=$(adb devices | awk 'NR>1 && $2=="device" {print $1}')
-device_count=$(echo "$devices" | wc -l)
+# Get list of connected devices
+devices=$(adb devices | grep -v "List" | grep -v "^$" | cut -f1)
 
-# If no devices are found, exit the script
-if [ "$device_count" -eq 0 ]; then
-    notify-send "No devices connected."
+if [ -z "$devices" ]; then
+    notify-send "No devices connected"
     exit 1
 fi
 
-# If multiple devices are connected, prompt to select one
-if [ "$device_count" -gt 1 ]; then
-    selected_device=$(echo "$devices" | rofi -dmenu -config ~/.config/dotfiles/rofi/config.rasi -p "Select Device: ")
-else
-    selected_device=$(echo "$devices")
-fi
+# Use rofi to select device
+selected_device=$(echo "$devices" | rofi -dmenu -config ~/.config/hypr/rofi/config.rasi -p "Select Device: ")
 
-# If no device was selected, exit the script
 if [ -z "$selected_device" ]; then
-    echo "No device selected."
     exit 1
 fi
 
-# Options for SCRCPY modes
-options="Video\nNo Video\nVideo & Audio"
+# Options for SCRCPY
+options="Full screen
+Windowed
+Low quality
+High quality
+No audio
+With audio"
 
-# Prompt to select the SCRCPY mode
-selected_option=$(echo -e "$options" | rofi -dmenu -config ~/.config/dotfiles/rofi/config.rasi -p "Select SCRCPY mode: ")
+# Use rofi to select SCRCPY mode
+selected_option=$(echo -e "$options" | rofi -dmenu -config ~/.config/hypr/rofi/config.rasi -p "Select SCRCPY mode: ")
 
-# Run scrcpy with the selected mode and device
+if [ -z "$selected_option" ]; then
+    exit 1
+fi
+
+# Execute SCRCPY with selected options
 case "$selected_option" in
-    "Video")
-      scrcpy --serial "$selected_device" --max-size=1024 --video-codec=h265 --video-bit-rate=6M --audio-bit-rate=128K --max-fps=30 --no-audio
+    "Full screen")
+        scrcpy -s "$selected_device" --fullscreen
         ;;
-    "No Video")
-      scrcpy --serial "$selected_device" --no-window
+    "Windowed")
+        scrcpy -s "$selected_device"
         ;;
-    "Video & Audio")
-      scrcpy --serial "$selected_device" --max-size=1024 --video-codec=h265 --video-bit-rate=6M --audio-bit-rate=128K --max-fps=30
+    "Low quality")
+        scrcpy -s "$selected_device" --max-size 800
         ;;
-    *)
-        echo "Invalid selection"
+    "High quality")
+        scrcpy -s "$selected_device" --max-size 1920
+        ;;
+    "No audio")
+        scrcpy -s "$selected_device" --no-audio
+        ;;
+    "With audio")
+        scrcpy -s "$selected_device" --audio
         ;;
 esac
