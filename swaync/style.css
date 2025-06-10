@@ -1,13 +1,13 @@
 @define-color bgc rgba(0, 0, 0, 0.1);
-@define-color borderc #ebdbb2;
-@define-color textc #282828;
+@define-color borderc #ffffff;
+@define-color textc #2c2c2c;
 
 * {
-  font-family: JetBrainsMonoNerdFontMono;
+  font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
   font-size: 15px;
   border-width: 3px;
-  border-color: #ebdbb2;
+  border-color: #ffffff;
 }
 
 .control-center .notification-row:focus,
@@ -25,9 +25,9 @@
 .notification {
   background: @textc;
   margin: 0px;
-  border-radius: 0px; /* Removed rounded corners */
+  border-radius: 0px;
   border-width: 3px;
-  border-color: #ebdbb2;
+  border-color: #ffffff;
 }
 
 .notification-content {
@@ -41,7 +41,7 @@
   color: @borderc;
   text-shadow: none;
   padding: 0;
-  border-radius: 0px; /* Removed rounded corners */
+  border-radius: 0px;
   margin-top: 9px;
   margin-right: 5px;
 }
@@ -78,7 +78,7 @@
 
 .control-center {
   background-color: @bgc;
-  border-radius: 0px; /* Removed rounded corners */
+  border-radius: 0px;
 }
 
 .control-center-list {
@@ -111,12 +111,12 @@
   text-shadow: none;
   background: @bgc;
   box-shadow: none;
-  border-radius: 0px; /* Removed rounded corners */
+  border-radius: 0px;
 }
 
 .widget-title>button:hover {
   background: @borderc;
-  color: #282828;
+  color: @textc;
 }
 
 .widget-label {
@@ -132,11 +132,11 @@
   color: @borderc;
   padding: 5px 5px 5px 5px;
   margin: 10px;
-  border-radius: 0px; /* Removed rounded corners */
+  border-radius: 0px;
 }
 
 .widget-mpris>box>button {
-  border-radius: 0px; /* Removed rounded corners */
+  border-radius: 0px;
 }
 
 .widget-mpris-player {

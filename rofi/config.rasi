@@ -3,7 +3,6 @@
 configuration {
     show-icons: false;
     font: "JetBrainsMono 12";
-    icon-theme: "Gruvbox-Plus-Dark";
 
     display-ssh:    "󰣀 ssh:";
     display-run:    "󱓞 run:";
@@ -14,6 +13,3 @@ configuration {
 
     dpi: 110;
 }
-
-
-@theme "~/.config/dotfiles/rofi/gruvbox-material.rasi"

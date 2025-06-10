@@ -1,5 +1,5 @@
 * {
-  font-family: "JetBrainsMonoNerdFontMono";
+  font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
   min-height: 0;
   font-size: 102%;
@@ -29,12 +29,12 @@ window#waybar.empty #window {
 
 tooltip {
   opacity: 1;
-  border-radius: 0px; /* Removed rounded corners */
+  border-radius: 0px;
 }
 
 tooltip label {
   padding: 10px;
-  color: #ebdbb2;
+  color: #ffffff;
 }
 
 #custom-cava,
@@ -48,8 +48,8 @@ tooltip label {
 #workspaces,
 #custom-menu,
 #custom-swaync {
-  border-radius: 0px; /* Removed rounded corners */
-  color: #ebdbb2;
+  border-radius: 0px;
+  color: #ffffff;
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 6px;
@@ -57,23 +57,23 @@ tooltip label {
 }
 
 #window {
-  color: #ebdbb2;
+  color: #ffffff;
   padding-top: 3px;
   padding-bottom: 3px;
   padding-right: 6px;
   padding-left: 6px;
-  border-radius: 0px; /* Removed rounded corners */
+  border-radius: 0px;
 }
 
 #workspaces button {
   margin: 1px;
   box-shadow: none;
   text-shadow: none;
-  border-radius: 0px; /* Removed rounded corners */
+  border-radius: 0px;
   padding-left: 6px;
   padding-right: 6px;
-  background-color: #ebdbb2;
-  color: #282828;
+  background-color: #2c2c2c;
+  color: #ffffff;
 }
 
 #temperature.critical {
