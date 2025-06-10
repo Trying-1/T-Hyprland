@@ -1,100 +1,17 @@
-# Build and installation files
-build/
-install/
-*.deb
-*.rpm
-*.pkg
+# Ignore screenshots and wallpapers
+screenshots/
+wallpapers/
 
-# Package lists
-pkg_user.lst
-pkg_black.lst
-install_pkg.lst
-
-# Development tools
-.vscode/
-.idea/
+# Ignore any temporary files
+*.tmp
 *.swp
 *.swo
 
-# Shell history and cache
-*.history
-*.cache
-*.bak
-*.tmp
-
-# Python files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# System files
-.DS_Store
-Thumbs.db
-
-# User-specific files
-user/
-*.user
-
-# Backup files
-*.orig
-*.rej
-
-# Logs
+# Ignore any log files
 *.log
 
-# Configuration backups
-*.conf.bak
-*.conf.old
-~/.config/hypr/backup_*/
-~/.cache/hyprpaper/*
-pkg_minimal.lst.bak
+# Ignore any local configuration files
+*.local
 
-# Editor files
-*.swp
-*.swo
-
-# Temporary files
-*.tmp
-*.temp
-*.bak
-*.png
-*.jpeg
-# Cache directories
-.cache/
-.cachedir/
-
-# Hidden files
-.*
-!.gitignore
-!.gitattributes
-
-# IDE files
-.idea/
-.vscode/
-*.sublime-workspace
-*.sublime-project
-
-# Package managers
-node_modules/
-yarn.lock
-package-lock.json
-
-# Virtual environments
-venv/
-env/
-.env
-
-# Compiled files
-*.so
-*.pyd
-*.pyc
-*.pyo
-
-# Distribution files
-*.dist-info/
-*.egg-info/
-*.whl
-*.zip
-*.tar.gz
-*.tgz
-*.egg
+# Ignore any binary files
+*.bin 
